@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase'
 
 import { Button, Input } from '@rneui/themed'
 
-export default function Auth() {
+export default function Auth({navigation} : any) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -17,6 +17,7 @@ export default function Auth() {
     })
 
     if (error) Alert.alert(error.message)
+    else navigation.navigate("Home")
     setLoading(false)
   }
 
